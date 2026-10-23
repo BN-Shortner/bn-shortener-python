@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bn-shortener"
+version = "0.1.0"
+description = "Official Python client for the BN Shortener API (b1.lc): links, QR codes, bio pages, analytics, webhooks, OAuth"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "BroadNet Technologies LLC", email = "support@broadnet.me" }]
+keywords = ["url shortener", "short links", "qr codes", "b1.lc", "broadnet"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.scripts]
+bn = "bn_shortener.cli:run"
+
+[project.urls]
+Homepage = "https://b1.lc"
+Documentation = "https://b1.lc/docs/"
+Source = "https://github.com/BN-Shortner/bn-shortener-python"
+Issues = "https://github.com/BN-Shortner/bn-shortener-python/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bn_shortener"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -p no:cacheprovider"
